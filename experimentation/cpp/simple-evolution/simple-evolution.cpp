@@ -27,18 +27,13 @@ struct NeuralNetwork : torch::nn::Module {
 int main() {
     auto model = std::make_shared<NeuralNetwork>();
     int ITERATIONS = 100;
-    float x_train[][] = {
+    int x_train[4][2] = {
         {0, 0},
         {0, 1},
         {1, 0},
         {1, 1}
     };
-    float y_train[][] = {
-        {0},
-        {1},
-        {1},
-        {0}
-    };
+    long y_train[] = { 0, 1, 1, 0 };
     torch::Tensor x_train_tensor = torch::from_blob(x_train, {4, 2});
     torch::Tensor y_train_tensor = torch::from_blob(y_train, {4, 1});
     std::cout << "Hello, world!" << std::endl;
